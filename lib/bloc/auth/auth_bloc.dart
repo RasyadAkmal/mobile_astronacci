@@ -38,7 +38,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     emit(AuthLoading());
     try {
       final response = await _apiService.login(event.email, event.password);
-      print(response);
       final user = User.fromJson(response.data['user']);
       final token = response.data['access_token'];
       await TokenManager.saveToken(token);

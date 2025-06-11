@@ -40,4 +40,22 @@ class ApiService {
     });
     return _dio.post('/user/update', data: formData);
   }
+
+  Future<Response> forgotPassword(String email) {
+    return _dio.post('/forgot-password', data: {'email': email});
+  }
+
+  Future<Response> resetPassword({
+    required String email,
+    required String token,
+    required String password,
+    required String passwordConfirmation,
+  }) {
+    return _dio.post('/reset-password', data: {
+      'email': email,
+      'token': token,
+      'password': password,
+      'password_confirmation': passwordConfirmation,
+    });
+  }
 }

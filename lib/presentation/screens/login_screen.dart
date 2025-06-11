@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mobile_astronacci/bloc/auth/auth_bloc.dart';
 import 'package:mobile_astronacci/presentation/screens/register_screen.dart';
+import 'package:mobile_astronacci/presentation/screens/forgot_password_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -95,6 +96,13 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: const Text('LOGIN'),
                       );
                     },
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (_) => const ForgotPasswordScreen()));
+                    },
+                    child: const Text('Forgot Password?'),
                   ),
                   TextButton(
                     onPressed: () {
